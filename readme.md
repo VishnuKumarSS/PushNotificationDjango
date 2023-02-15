@@ -1,9 +1,9 @@
-`> pip install -r requirements.txt`
+`pip install -r requirements.txt`
 
 ```
-> python manage.py makemigrations
-> python manage.py migrate
-> python manage.py runserver
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
 ```
 
 Go to the home page of the server, copy the **Device specific firebase app Key** from the console of the browser.
