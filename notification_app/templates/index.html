@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-messaging.js"></script>
+    <!-- <script src="/static/js/firebase-messaging-sw.js"></script>
+
+     -->
+
+     <script>
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyCdpoBmMRTJ8jaW3b4J48o2Z9-Ex70eTJE",
+          authDomain: "my-first-project-a9467.firebaseapp.com",
+          projectId: "my-first-project-a9467",
+          storageBucket: "my-first-project-a9467.appspot.com",
+          messagingSenderId: "31043981576",
+          appId: "1:31043981576:web:005d48ca56960e67fddcbd",
+          measurementId: "G-EF7KXQC5MR"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+      
+        const messaging = firebase.messaging();
+        console.log(messaging.getToken())
+        
+        // public vapid key
+        messaging.getToken({ vapidKey: 'BJjS9TGvvB-jTfOe6gozti8YmkAfuPORfwGG8rNVy23w9xqnymK5B57y7YZ3WjVOGvFRkKFLIyqdqdAEZDod1dc' }).then((currentToken) => {
+        if (currentToken) {
+          
+          console.log(currentToken)
+        } else {
+          console.log('No registration token available. Request permission to generate one.');
+       
+        }
+      }).catch((err) => {
+        console.log('An error occurred while retrieving token. ', err);
+      });
+      
+      
+        messaging
+         .requestPermission()
+         .then(function () {
+           console.log("Notification permission granted.");
+           return messaging.getToken()
+         })
+         .catch(function (err) {
+         console.log("Unable to get permission to notify.", err);
+       });
+      
+      
+        messaging.onMessage((payload) => {
+        console.log('Message received. ', payload);
+       
+      });
+      
+      
+      
+      </script>
+  
+
+</head>
+
+<body>
+
+</body>
+
+</html>
