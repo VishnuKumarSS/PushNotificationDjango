@@ -1,3 +1,5 @@
+# Commands
+
 `pip install -r requirements.txt`
 
 ```
@@ -11,6 +13,8 @@ Then navigate to the send/**Paste the key here**/
 
 The push notification will be sent!
 
+
+# Instructions / How things work
 
 To send a Firebase Cloud Message, we have to send a request to the url
 
@@ -79,29 +83,3 @@ And then inside the **notification** key the **message and title** are mandatory
 [https://lh5.googleusercontent.com/3TeuhfSeJhoLcRXqsaS_MU_OojmyOWOic_K19UIQfCobY1d9reASg8lAIJdiR7A9kODC56eDy3ynAGiGyBWpJ6gqeg22caNULr-qlWYkMgGjDmWZgHF2Rgne3-w_dbIm39a4TwgV-PUmRUMCSDCtPk4](https://lh5.googleusercontent.com/3TeuhfSeJhoLcRXqsaS_MU_OojmyOWOic_K19UIQfCobY1d9reASg8lAIJdiR7A9kODC56eDy3ynAGiGyBWpJ6gqeg22caNULr-qlWYkMgGjDmWZgHF2Rgne3-w_dbIm39a4TwgV-PUmRUMCSDCtPk4)
 
 Now send the request, the user should have received the message now!
-
-We can refer this Youtube Video for this
-
-[Firebase send push notification using postman example.](https://www.youtube.com/watch?v=rQzexLu0eLU&ab_channel=AlimonPito)
-
-We can follow the below links for that,
-
-**https://medium.com/scalereal/push-notifications-through-django-db528c303b91**
-
-Then refer,
-
-**WEB -**
-
-[Firebase Push notification Django | Push notification Django | Learn how to send push notification](https://www.youtube.com/watch?v=RXK3O0ONJv0&ab_channel=CodeKeen)
-
-**ANDROID -**
-
-[https://medium.com/@shamsul.arefin.sajib/how-to-connect-django-and-android-with-firebase-fcm-notifications-71e9aafdd988](https://medium.com/@shamsul.arefin.sajib/how-to-connect-django-and-android-with-firebase-fcm-notifications-71e9aafdd988)
-
-# **Notice messages to users under specific topic (Not our case)**
-
-We can refer this Youtube Video for this
-
-[Firebase send message for multiple devices using postman +flutter example](https://www.youtube.com/watch?v=mCeSgHmVehk&ab_channel=AlimonPito)
-
-Here we are sending the messages to the user’s by categorizing them into Topic names. For that first we have to make that user subscribe to that topic. Then we can do something like this,
