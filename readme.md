@@ -8,10 +8,14 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-Go to the home page of the server, copy the **Device specific firebase app Key** from the console of the browser.
-Then navigate to the send/**Paste the key here**/
+Go to the home page of the server, `host:port/`
 
-The push notification will be sent!
+Then copy the **Device specific firebase app Key** from the console of the browser. 
+
+Then navigate to the `host:port/send/<Paste that key here>`
+
+
+**The user should have received the message now!**
 
 
 # Instructions / How things work
@@ -82,4 +86,4 @@ And then inside the **notification** key the **message and title** are mandatory
 
 [https://lh5.googleusercontent.com/3TeuhfSeJhoLcRXqsaS_MU_OojmyOWOic_K19UIQfCobY1d9reASg8lAIJdiR7A9kODC56eDy3ynAGiGyBWpJ6gqeg22caNULr-qlWYkMgGjDmWZgHF2Rgne3-w_dbIm39a4TwgV-PUmRUMCSDCtPk4](https://lh5.googleusercontent.com/3TeuhfSeJhoLcRXqsaS_MU_OojmyOWOic_K19UIQfCobY1d9reASg8lAIJdiR7A9kODC56eDy3ynAGiGyBWpJ6gqeg22caNULr-qlWYkMgGjDmWZgHF2Rgne3-w_dbIm39a4TwgV-PUmRUMCSDCtPk4)
 
-Now send the request, the user should have received the message now!
+Now send the request, the user should have received the notification now!
