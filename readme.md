@@ -48,7 +48,7 @@ We can visit the link below for various platform specific documentation.
 
 [https://firebase.google.com/docs/cloud-messaging](https://firebase.google.com/docs/cloud-messaging)
 
-```json
+```python
 payload = {
 
 	# we can use "to" for single device notification
