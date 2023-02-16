@@ -17,12 +17,11 @@ Then navigate to the `host:port/send/<Paste that key here>`
 **The user should have received the message now!**
 
 
-# **HTTP v1 method** 
+# **HTTP v1 method - Latest Suggested by firebase** 
 For this method please look at this doc provided by google itself, [**Clickhere**](https://firebase.google.com/docs/cloud-messaging/migrate-v1)
 
 
-
-# **Instructions / How things work**
+# **Legacy/Normal HTTP method - Instructions / How things work**
 
 To send a Firebase Cloud Message, we have to send a request to the url
 

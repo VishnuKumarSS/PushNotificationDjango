@@ -1,18 +1,26 @@
-import pdb
 from django.shortcuts import render
 from django.http import HttpResponse
-import requests
-import json
 from django.conf import settings
+from .push_notification import _send_fcm_message
 
-# for 
+# for firebase initialization
 import firebase_admin
 from firebase_admin import credentials
+
 
 cred = credentials.Certificate(settings.GOOGLE_CREDENTIAL_SERVICE_ACCOUNT_JSON)
 initialize_app = firebase_admin.initialize_app(cred)
 
+
 def index(request):
+    """
+    Sends the VAPID key to the index.html.
+    By using that key, JS snippet generates a device specific token and prints that to the console.
+    
+    :param request: HTTP Request
+
+    :return: HTTP Response
+    """
     # key pair under web configuration
     vapid_key = settings.PUBLIC_VAPID_KEY
     context = {}
@@ -21,15 +29,33 @@ def index(request):
 
 
 def send(request, fcm_notification_device_key):
+    """
+    Gets the fcm_notification_device_key and sends the fcm message to a specific device.
+    
+    :param fcm_notification_device_key: firebase app token for specific device
+    :type fcm_notification_device_key: str
+
+    :return: HTTP Response
+    """
     device_registration  = [
         fcm_notification_device_key
     ]
-    # send_notification(device_registration , 'This is the Message Title' , 'This is the Message Body', 'This is the Message Subtitle')
-    
-    return HttpResponse("Sent ")
+    fcm_response = _send_fcm_message(device_token = fcm_notification_device_key)
+    if fcm_response.status_code == 200:
+        return HttpResponse("Noticiation Sent Successfully!")
+    else:
+        return HttpResponse("Please verify device specific token and Try again :)")
 
 
 def showFirebaseJS(request):
+    """
+    It's a module name needed by google firebase to authenticate and send the device specific tokens. Without this module, firebase cannot initialize the app and send the tokens.
+    It returns a module of content_type as "text/javascript".
+    
+    :param request: HTTP request
+
+    :return: HTTP Response
+    """
     data='importScripts("https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js");' \
          'importScripts("https://www.gstatic.com/firebasejs/8.2.0/firebase-messaging.js"); ' \
          'var firebaseConfig = {' \
@@ -53,4 +79,4 @@ def showFirebaseJS(request):
          '    return self.registration.showNotification(payload.notification.title,notificationOption);' \
          '});'
 
-    return HttpResponse(data,content_type="text/javascript")
+    return HttpResponse(data, content_type="text/javascript")
