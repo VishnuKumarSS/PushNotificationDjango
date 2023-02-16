@@ -4,7 +4,7 @@ import requests
 import json
 from django.conf import settings
 
-def send_notification(registration_ids , message_title , message_body, message_subtitle):
+def send_message(registration_ids , message_title , message_body, message_subtitle):
     cloud_messaging_api_key = settings.CLOUD_MESSAGING_API_KEY
     url = "https://fcm.googleapis.com/fcm/send"
 
@@ -36,11 +36,11 @@ def index(request):
     context['vapid_key'] = vapid_key
     return render(request , 'index.html', context)
 
-def send(request, fcm_notification_device_key):
+def send_notification(request, fcm_notification_device_key):
     device_registration  = [
         fcm_notification_device_key
     ]
-    send_notification(device_registration , 'This is the Message Title' , 'This is the Message Body', 'This is the Message Subtitle')
+    send_message(device_registration , 'This is the Message Title' , 'This is the Message Body', 'This is the Message Subtitle')
     return HttpResponse("Sent ")
 
 def showFirebaseJS(request):
