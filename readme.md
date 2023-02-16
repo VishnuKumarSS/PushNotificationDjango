@@ -18,8 +18,9 @@ Then navigate to the `host:port/send-notification/<Paste that key here>`
 
 
 # **HTTP v1 method - Latest Suggested by firebase** 
-For this method please look at this doc provided by google itself, [**Clickhere**](https://firebase.google.com/docs/cloud-messaging/migrate-v1)
+For this method please look at this doc provided by google itself, [**Clickhere**](https://firebas	e.google.com/docs/cloud-messaging/migrate-v1)
 
+Refer official firebase module and integrate it: https://github.com/firebase/quickstart-python/tree/2c68e7c5020f4dbb072cca4da03dba389fbbe4ec/messaging
 
 # **Legacy/Normal HTTP method - Instructions / How things work**
 
