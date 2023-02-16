@@ -30,7 +30,7 @@ def _get_access_token():
     :return: Access token.
     """
     credentials = service_account.Credentials.from_service_account_file(
-        settings.GOOGLE_CREDENTIAL_SERVICE_ACCOUNT_JSON, scopes=SCOPES)
+        settings.GOOGLE_APPLICATION_CREDENTIALS, scopes=SCOPES)
     request = google.auth.transport.requests.Request()
     credentials.refresh(request)
     return credentials.token

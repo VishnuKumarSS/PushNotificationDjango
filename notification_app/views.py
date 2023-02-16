@@ -8,7 +8,7 @@ import firebase_admin
 from firebase_admin import credentials
 
 
-cred = credentials.Certificate(settings.GOOGLE_CREDENTIAL_SERVICE_ACCOUNT_JSON)
+cred = credentials.Certificate(settings.GOOGLE_APPLICATION_CREDENTIALS)
 initialize_app = firebase_admin.initialize_app(cred)
 
 
