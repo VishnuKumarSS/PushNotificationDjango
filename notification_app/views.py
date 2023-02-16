@@ -1,33 +1,16 @@
+import pdb
 from django.shortcuts import render
 from django.http import HttpResponse
 import requests
 import json
 from django.conf import settings
 
-def send_notification(registration_ids , message_title , message_body, message_subtitle):
-    cloud_messaging_api_key = settings.CLOUD_MESSAGING_API_KEY
-    url = "https://fcm.googleapis.com/fcm/send"
+# for 
+import firebase_admin
+from firebase_admin import credentials
 
-    headers = {
-    "Content-Type":"application/json",
-    "Authorization": 'key=' + cloud_messaging_api_key
-    }
-
-    payload = {
-        "registration_ids" :registration_ids,
-        "priority" : "high",
-        "notification" : {
-            "body" : message_body,
-            "title" : message_title,
-            "subtitle": message_subtitle
-            # "image" : image_link,
-            # "icon": icon_link,
-        }
-    }
-
-    result = requests.post(url,  data=json.dumps(payload), headers=headers )
-    print(result.json())
-
+cred = credentials.Certificate(settings.GOOGLE_CREDENTIAL_SERVICE_ACCOUNT_JSON)
+initialize_app = firebase_admin.initialize_app(cred)
 
 def index(request):
     # key pair under web configuration
@@ -36,12 +19,15 @@ def index(request):
     context['vapid_key'] = vapid_key
     return render(request , 'index.html', context)
 
+
 def send(request, fcm_notification_device_key):
     device_registration  = [
         fcm_notification_device_key
     ]
-    send_notification(device_registration , 'This is the Message Title' , 'This is the Message Body', 'This is the Message Subtitle')
+    # send_notification(device_registration , 'This is the Message Title' , 'This is the Message Body', 'This is the Message Subtitle')
+    
     return HttpResponse("Sent ")
+
 
 def showFirebaseJS(request):
     data='importScripts("https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js");' \
