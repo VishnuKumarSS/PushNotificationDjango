@@ -28,7 +28,7 @@ def index(request):
     return render(request , 'index.html', context)
 
 
-def send(request, fcm_notification_device_key):
+def send_notification(request, fcm_notification_device_key):
     """
     Gets the fcm_notification_device_key and sends the fcm message to a specific device.
     
