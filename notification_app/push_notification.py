@@ -8,6 +8,7 @@ customizations. For example, a badge is added to messages that are sent to iOS d
 
 Refer official firebase module: https://github.com/firebase/quickstart-python/tree/2c68e7c5020f4dbb072cca4da03dba389fbbe4ec/messaging
 """
+
 import json
 import requests
 import google.auth.transport.requests
