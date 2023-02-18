@@ -14,6 +14,7 @@ Then copy the **Device specific firebase app Key** from the console of the brows
 
 Then navigate to the `host:port/send-notification/<Paste that key here>`
 
+
 **The user should have received the message now!**
 
 # **HTTP v1 method - Latest Suggested by firebase** 
