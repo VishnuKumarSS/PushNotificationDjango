@@ -4,6 +4,7 @@ import requests
 import json
 from django.conf import settings
 
+
 def send_message(registration_ids , message_title , message_body, message_subtitle):
     cloud_messaging_api_key = settings.CLOUD_MESSAGING_API_KEY
     url = "https://fcm.googleapis.com/fcm/send"
