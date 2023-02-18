@@ -28,6 +28,7 @@ def index(request):
     return render(request , 'index.html', context)
 
 
+# view for sending the using the send fcm message function to send the notifications
 def send_notification(request, fcm_notification_device_key):
     """
     Gets the fcm_notification_device_key and sends the fcm message to a specific device.
