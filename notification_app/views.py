@@ -4,12 +4,12 @@ from django.conf import settings
 from .push_notification import _send_fcm_message
 
 # for firebase initialization
-import firebase_admin
-from firebase_admin import credentials
+# import firebase_admin
+# from firebase_admin import credentials
 
 
-cred = credentials.Certificate(settings.GOOGLE_APPLICATION_CREDENTIALS)
-initialize_app = firebase_admin.initialize_app(cred)
+# cred = credentials.Certificate(settings.GOOGLE_APPLICATION_CREDENTIALS)
+# initialize_app = firebase_admin.initialize_app(cred)
 
 
 def index(request):
