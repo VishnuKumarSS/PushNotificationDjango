@@ -51,7 +51,8 @@ def _send_fcm_message(device_token):
             'token': device_token,
             'notification': {
                 'title': 'FCM Notification - title',
-                'body': 'Notification from FCM - body'
+                'body': 'Notification from FCM - body',
+                'image': 'https://picsum.photos/48'
             }
         }
     }
